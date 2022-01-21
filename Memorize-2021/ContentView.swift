@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var emojis =  Themes.vehicles.emojis
+    @State var emojis =  Themes.vehicles.emojis.shuffled()
     @State var emojiCount = Themes.vehicles.emojis.count
 
     var body: some View {
@@ -41,7 +41,7 @@ struct ContentView: View {
 
     var vehiclesButton: some View {
         Button {
-            emojis = Themes.vehicles.emojis
+            emojis = Themes.vehicles.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
             Text(Themes.vehicles.emojis.first ?? "❌")
@@ -49,7 +49,7 @@ struct ContentView: View {
     }
     var toolsButton: some View {
         Button {
-            emojis = Themes.tools.emojis
+            emojis = Themes.tools.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
             Text(Themes.tools.emojis.first ?? "❌")
@@ -57,7 +57,7 @@ struct ContentView: View {
     }
     var facesButton: some View {
         Button {
-            emojis = Themes.faces.emojis
+            emojis = Themes.faces.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
             Text(Themes.faces.emojis.first ?? "❌")
@@ -65,7 +65,7 @@ struct ContentView: View {
     }
     var fruitsButton: some View {
         Button {
-            emojis = Themes.fruits.emojis
+            emojis = Themes.fruits.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
             Text(Themes.fruits.emojis.first ?? "❌")
