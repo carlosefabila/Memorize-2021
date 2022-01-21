@@ -42,7 +42,11 @@ struct ContentView: View {
         let theme = Themes.vehicles
         return Button {
             emojis = theme.emojis.shuffled()
-            emojiCount = emojis.count
+            if emojis.count > 4 {
+                emojiCount = Int.random(in: 4...emojis.count)
+            } else {
+                emojiCount = emojis.count
+            }
         } label: {
             VStack {
                 Image(systemName: theme.iconName)
@@ -56,7 +60,11 @@ struct ContentView: View {
         let theme = Themes.tools
         return Button {
             emojis = theme.emojis.shuffled()
-            emojiCount = emojis.count
+            if emojis.count > 4 {
+                emojiCount = Int.random(in: 4...emojis.count)
+            } else {
+                emojiCount = emojis.count
+            }
         } label: {
             VStack {
                 Image(systemName: theme.iconName)
@@ -70,7 +78,11 @@ struct ContentView: View {
         let theme = Themes.faces
         return Button {
             emojis = theme.emojis.shuffled()
-            emojiCount = emojis.count
+            if emojis.count > 4 {
+                emojiCount = Int.random(in: 4...emojis.count)
+            } else {
+                emojiCount = emojis.count
+            }
         } label: {
             VStack {
                 Image(systemName: theme.iconName)
@@ -84,7 +96,11 @@ struct ContentView: View {
         let theme = Themes.fruits
         return Button {
             emojis = theme.emojis.shuffled()
-            emojiCount = emojis.count
+            if emojis.count > 4 {
+                emojiCount = Int.random(in: 4...emojis.count)
+            } else {
+                emojiCount = emojis.count
+            }
         } label: {
             VStack {
                 Image(systemName: theme.iconName)
