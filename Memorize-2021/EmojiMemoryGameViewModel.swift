@@ -8,10 +8,10 @@
 import SwiftUI
 
 class EmojiMemoryGameViewModel: ObservableObject {
-    static let emojis = ["🚀", "🚂", "✈️", "🚲", "🚗", "🚜", "🛸", "🚁", "🚠", "🛶", "⛵️", "🚢", "🛵", "🚓", "🚑", "🚌", "🚕", "🚤", "🚙", "🚛", "🚇"]
 
     static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCards: 7) { pairIndex in
+        let emojis = Themes.getRandom().emojis
+        return MemoryGame<String>(numberOfPairsOfCards: 7) { pairIndex in
             emojis[pairIndex]
         }
     }
