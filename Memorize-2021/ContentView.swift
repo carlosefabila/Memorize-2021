@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var emojis =  Themes.vehicles.emojis.shuffled()
     @State var emojiCount = Themes.vehicles.emojis.count
+    @State var color = Themes.vehicles.color
 
     var body: some View {
         VStack {
@@ -25,13 +26,11 @@ struct ContentView: View {
             }
             .foregroundColor(/*@START_MENU_TOKEN@*/.red/*@END_MENU_TOKEN@*/)
             Spacer()
-            HStack {
-                removeCard
+            HStack(alignment: .bottom) {
                 vehiclesButton
                 toolsButton
                 facesButton
                 fruitsButton
-                addCard
             }
             .font(.largeTitle)
             .padding(.horizontal)
@@ -40,53 +39,59 @@ struct ContentView: View {
     }
 
     var vehiclesButton: some View {
-        Button {
-            emojis = Themes.vehicles.emojis.shuffled()
+        let theme = Themes.vehicles
+        return Button {
+            emojis = theme.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
-            Text(Themes.vehicles.emojis.first ?? "❌")
+            VStack {
+                Image(systemName: theme.iconName)
+                    .font(.largeTitle)
+                Text(theme.name)
+                    .font(.caption)
+            }
         }
     }
     var toolsButton: some View {
-        Button {
-            emojis = Themes.tools.emojis.shuffled()
+        let theme = Themes.tools
+        return Button {
+            emojis = theme.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
-            Text(Themes.tools.emojis.first ?? "❌")
+            VStack {
+                Image(systemName: theme.iconName)
+                    .font(.title)
+                Text(theme.name)
+                    .font(.caption)
+            }
         }
     }
     var facesButton: some View {
-        Button {
-            emojis = Themes.faces.emojis.shuffled()
+        let theme = Themes.faces
+        return Button {
+            emojis = theme.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
-            Text(Themes.faces.emojis.first ?? "❌")
+            VStack {
+                Image(systemName: theme.iconName)
+                    .font(.largeTitle)
+                Text(theme.name)
+                    .font(.caption)
+            }
         }
     }
     var fruitsButton: some View {
-        Button {
-            emojis = Themes.fruits.emojis.shuffled()
+        let theme = Themes.fruits
+        return Button {
+            emojis = theme.emojis.shuffled()
             emojiCount = emojis.count
         } label: {
-            Text(Themes.fruits.emojis.first ?? "❌")
-        }
-    }
-    var removeCard: some View {
-        Button {
-            if emojiCount > 2 {
-                emojiCount -= 1
+            VStack {
+                Image(systemName: theme.iconName)
+                    .font(.largeTitle)
+                Text(theme.name)
+                    .font(.caption)
             }
-        } label: {
-            Image(systemName: "minus.circle")
-        }
-    }
-    var addCard: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
-        } label: {
-            Image(systemName: "plus.circle")
         }
     }
 }
