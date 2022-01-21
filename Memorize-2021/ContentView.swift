@@ -27,88 +27,31 @@ struct ContentView: View {
             .foregroundColor(/*@START_MENU_TOKEN@*/.red/*@END_MENU_TOKEN@*/)
             Spacer()
             HStack(alignment: .bottom) {
-                vehiclesButton
-                toolsButton
-                facesButton
-                fruitsButton
+                themeButton(theme: Themes.vehicles) {
+                    (emojisList, nCards) -> Void in
+                    emojis = emojisList
+                    emojiCount = nCards
+                }
+                themeButton(theme: Themes.tools) {
+                    (emojisList, nCards) -> Void in
+                    emojis = emojisList
+                    emojiCount = nCards
+                }
+                themeButton(theme: Themes.faces) {
+                    (emojisList, nCards) -> Void in
+                    emojis = emojisList
+                    emojiCount = nCards
+                }
+                themeButton(theme: Themes.fruits) {
+                    (emojisList, nCards) -> Void in
+                    emojis = emojisList
+                    emojiCount = nCards
+                }
             }
             .font(.largeTitle)
             .padding(.horizontal)
         }
         .padding()
-    }
-
-    var vehiclesButton: some View {
-        let theme = Themes.vehicles
-        return Button {
-            emojis = theme.emojis.shuffled()
-            if emojis.count > 4 {
-                emojiCount = Int.random(in: 4...emojis.count)
-            } else {
-                emojiCount = emojis.count
-            }
-        } label: {
-            VStack {
-                Image(systemName: theme.iconName)
-                    .font(.largeTitle)
-                Text(theme.name)
-                    .font(.caption)
-            }
-        }
-    }
-    var toolsButton: some View {
-        let theme = Themes.tools
-        return Button {
-            emojis = theme.emojis.shuffled()
-            if emojis.count > 4 {
-                emojiCount = Int.random(in: 4...emojis.count)
-            } else {
-                emojiCount = emojis.count
-            }
-        } label: {
-            VStack {
-                Image(systemName: theme.iconName)
-                    .font(.title)
-                Text(theme.name)
-                    .font(.caption)
-            }
-        }
-    }
-    var facesButton: some View {
-        let theme = Themes.faces
-        return Button {
-            emojis = theme.emojis.shuffled()
-            if emojis.count > 4 {
-                emojiCount = Int.random(in: 4...emojis.count)
-            } else {
-                emojiCount = emojis.count
-            }
-        } label: {
-            VStack {
-                Image(systemName: theme.iconName)
-                    .font(.largeTitle)
-                Text(theme.name)
-                    .font(.caption)
-            }
-        }
-    }
-    var fruitsButton: some View {
-        let theme = Themes.fruits
-        return Button {
-            emojis = theme.emojis.shuffled()
-            if emojis.count > 4 {
-                emojiCount = Int.random(in: 4...emojis.count)
-            } else {
-                emojiCount = emojis.count
-            }
-        } label: {
-            VStack {
-                Image(systemName: theme.iconName)
-                    .font(.largeTitle)
-                Text(theme.name)
-                    .font(.caption)
-            }
-        }
     }
 }
 
@@ -133,7 +76,28 @@ struct CardView: View {
     }
 }
 
-
+struct themeButton: View {
+    let theme: Theme
+    let buttonAction: ([String], Int) -> Void
+    let cardsMinAmount = 4
+    var body: some View {
+        Button {
+            let emojis = theme.emojis.shuffled()
+            var nCards = emojis.count
+            if emojis.count > cardsMinAmount {
+                nCards = Int.random(in: cardsMinAmount...emojis.count)
+            }
+            buttonAction(emojis, nCards)
+        } label: {
+            VStack {
+                Image(systemName: theme.iconName)
+                    .font(theme.iconSize)
+                Text(theme.name)
+                    .font(.caption)
+            }
+        }
+    }
+}
 
 
 
