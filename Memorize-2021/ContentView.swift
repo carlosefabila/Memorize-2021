@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis =  ["🚀", "🚂", "✈️", "🚲", "🚗", "🚜", "🛸", "🚁", "🚠", "🛶", "⛵️", "🚢", "🛵", "🚓", "🚑", "🚌", "🚕", "🚤", "🚙", "🚛", "🚇"]
-    @State var emojiCount = 21
+    @State var emojis =  Themes.vehicles.emojis
+    @State var emojiCount = Themes.vehicles.emojis.count
 
     var body: some View {
         VStack {
+            Text("Memorize 2021")
+                .font(.title)
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
                     ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
@@ -25,7 +27,10 @@ struct ContentView: View {
             Spacer()
             HStack {
                 removeCard
-                Spacer()
+                vehiclesButton
+                toolsButton
+                facesButton
+                fruitsButton
                 addCard
             }
             .font(.largeTitle)
@@ -34,6 +39,38 @@ struct ContentView: View {
         .padding()
     }
 
+    var vehiclesButton: some View {
+        Button {
+            emojis = Themes.vehicles.emojis
+            emojiCount = emojis.count
+        } label: {
+            Text(Themes.vehicles.emojis.first ?? "❌")
+        }
+    }
+    var toolsButton: some View {
+        Button {
+            emojis = Themes.tools.emojis
+            emojiCount = emojis.count
+        } label: {
+            Text(Themes.tools.emojis.first ?? "❌")
+        }
+    }
+    var facesButton: some View {
+        Button {
+            emojis = Themes.faces.emojis
+            emojiCount = emojis.count
+        } label: {
+            Text(Themes.faces.emojis.first ?? "❌")
+        }
+    }
+    var fruitsButton: some View {
+        Button {
+            emojis = Themes.fruits.emojis
+            emojiCount = emojis.count
+        } label: {
+            Text(Themes.fruits.emojis.first ?? "❌")
+        }
+    }
     var removeCard: some View {
         Button {
             if emojiCount > 2 {
