@@ -34,9 +34,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 indexOfTheOnlyFaceUpCard = nil
             } else {
                 for index in cards.indices {
-                    if !cards[index].isMatched{
-                        cards[index].isFaceUp = false
-                    }
+                    cards[index].isFaceUp = false
                 }
                 indexOfTheOnlyFaceUpCard = chosenIndex
             }
