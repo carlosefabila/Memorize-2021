@@ -26,8 +26,14 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(/*@START_MENU_TOKEN@*/.red/*@END_MENU_TOKEN@*/)
-            /*
             Spacer()
+            Button {
+                viewModel.startNewGame()
+            } label: {
+                Text("Start New Game")
+                    .font(.largeTitle)
+            }
+             /*
             HStack(alignment: .bottom) {
                 themeButton(theme: Themes.vehicles) {
                     (emojisList, nCards) -> Void in
