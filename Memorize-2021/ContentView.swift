@@ -33,32 +33,6 @@ struct ContentView: View {
                 Text("Start New Game")
                     .font(.largeTitle)
             }
-             /*
-            HStack(alignment: .bottom) {
-                themeButton(theme: Themes.vehicles) {
-                    (emojisList, nCards) -> Void in
-                    emojis = emojisList
-                    emojiCount = nCards
-                }
-                themeButton(theme: Themes.tools) {
-                    (emojisList, nCards) -> Void in
-                    emojis = emojisList
-                    emojiCount = nCards
-                }
-                themeButton(theme: Themes.faces) {
-                    (emojisList, nCards) -> Void in
-                    emojis = emojisList
-                    emojiCount = nCards
-                }
-                themeButton(theme: Themes.fruits) {
-                    (emojisList, nCards) -> Void in
-                    emojis = emojisList
-                    emojiCount = nCards
-                }
-            }
-            .font(.largeTitle)
-            .padding(.horizontal)
-             */
         }
         .padding()
     }
@@ -83,28 +57,14 @@ struct CardView: View {
     }
 }
 
-struct themeButton: View {
-    let theme: Theme
-    let buttonAction: ([String], Int) -> Void
-    let cardsMinAmount = 4
-    var body: some View {
-        Button {
-            let emojis = theme.emojis.shuffled()
-            var nCards = emojis.count
-            if emojis.count > cardsMinAmount {
-                nCards = Int.random(in: cardsMinAmount...emojis.count)
-            }
-            buttonAction(emojis, nCards)
-        } label: {
-            VStack {
-                Image(systemName: theme.iconName)
-                    .font(theme.iconSize)
-                Text(theme.name)
-                    .font(.caption)
-            }
-        }
-    }
-}
+
+
+
+
+
+
+
+
 
 
 
