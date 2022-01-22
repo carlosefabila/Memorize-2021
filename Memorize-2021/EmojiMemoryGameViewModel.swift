@@ -10,8 +10,9 @@ import SwiftUI
 class EmojiMemoryGameViewModel: ObservableObject {
 
     static func createMemoryGame() -> MemoryGame<String> {
-        let emojis = Themes.getRandom().emojis
-        return MemoryGame<String>(numberOfPairsOfCards: 7) { pairIndex in
+        let emojis = Themes.getRandom().emojis.shuffled()
+        let numberOfPairs = Int.random(in: 4..<emojis.count)
+        return MemoryGame<String>(numberOfPairsOfCards: numberOfPairs) { pairIndex in
             emojis[pairIndex]
         }
     }
@@ -23,7 +24,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     }
 
 
-    // MARK: - Intent(s)
+    // MARK: - User Intent(s)
     func choose(_ card: MemoryGame<String>.Card) {
         model.choose(card)
     }
