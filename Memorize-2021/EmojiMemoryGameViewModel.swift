@@ -18,6 +18,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     private var theme: Theme
 
     var themeColor: Color { theme.color }
+    var themeName: String { theme.name }
 
     init () {
         (self.model, self.theme) = EmojiMemoryGameViewModel.createMemoryGame()

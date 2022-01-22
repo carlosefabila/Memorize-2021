@@ -33,25 +33,25 @@ enum Themes: CaseIterable {
             return Themes.animalsTheme
         }
     }
-    static let vehiclesTheme = Theme(name: "vehicles",
+    static let vehiclesTheme = Theme(name: "Vehicles",
                                 color: .red,
                                 emojis: ["🚀", "🚂", "✈️", "🚲", "🚗", "🚜", "🛸", "🚁", "🚠", "🛶", "⛵️", "🚢", "🛵", "🚓", "🚑", "🚌", "🚕", "🚤", "🚙", "🚛", "🚇"])
 
-    static let toolsTheme = Theme(name: "tools",
+    static let toolsTheme = Theme(name: "Tools",
                              color: .blue,
                              emojis: ["🔧", "🪜", "🧰", "🪛", "🔨", "⛏", "🪚", "🔩", "⚙️", "🪓", "🧱", "🔑", "🧹", "✂️", "📐", "📏", "📎", "✏️", "🖋", "🔓", "🖍"])
 
-    static let facesTheme = Theme(name: "faces",
+    static let facesTheme = Theme(name: "Faces",
                              color: .orange,
                              emojis: ["😃", "😄", "😘", "😍", "😇", "😅", "🤣", "☺️", "🧐", "🤓", "😎", "😜", "😝", "😤", "😭", "😢", "😠", "😱", "🤔", "😉", "🥳", "😩", "🤫", "😏", "🥱", "😲", "😴", "😷"])
 
-    static let fruitsTheme = Theme(name: "fruits",
+    static let fruitsTheme = Theme(name: "Fruits",
                               color: .green,
                               emojis: ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍒", "🍑", "🥭", "🍍", "🥝", "🌶", "🥑"])
-    static let flagsTheme = Theme(name: "flags",
+    static let flagsTheme = Theme(name: "Flags",
                                 color: .gray,
                                 emojis: ["🇨🇦", "🇧🇷", "🇩🇪", "🇬🇷", "🇪🇺", "🇯🇵", "🇲🇽", "🇰🇷", "🇮🇹", "🇮🇪", "🇪🇸", "🇵🇹", "🇺🇸", "🇬🇧", "🇹🇷", "🇷🇺", "🇮🇳", "🇦🇺", "🇪🇨"])
-    static let animalsTheme = Theme(name: "animals",
+    static let animalsTheme = Theme(name: "Animals",
                                     color: .brown,
                                 emojis: ["🐒", "🐥", "🦆", "🦅", "🦉", "🦇", "🐝", "🦋", "🐌", "🐞", "🪰", "🐢", "🐍", "🦐", "🦀", "🐡", "🐬", "🐋", "🦈", "🐊", "🐅", "🦓", "🦍", "🦧", "🐘", "🦏", "🐫", "🦒", "🦘", "🐃", "🦬", "🐄", "🐖", "🐏", "🦙", "🐐", "🦌", "🐕", "🐈", "🦜", "🐇"])
 }
