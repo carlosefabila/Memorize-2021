@@ -20,44 +20,45 @@ enum Themes: CaseIterable {
     static func getRandom() -> Theme {
         switch Themes.allCases.randomElement()! {
         case .vehicles:
-            return Themes.vehiclesTheme
+            return Theme(name: "Vehicles",
+                         color: .red,
+                         emojis: Emojis.vehicles)
         case .tools:
-            return Themes.toolsTheme
+            return Theme(name: "Tools",
+                         color: .blue,
+                         emojis: Emojis.tools)
         case .faces:
-            return Themes.facesTheme
+            return Theme(name: "Faces",
+                         color: .orange,
+                         emojis: Emojis.faces)
         case .fruits:
-            return Themes.fruitsTheme
+            return Theme(name: "Fruits",
+                         color: .green,
+                         emojis: Emojis.fruits)
         case .flags:
-            return Themes.flagsTheme
+            return Theme(name: "Flags",
+                         color: .gray,
+                         emojis: Emojis.flags)
         case .animals:
-            return Themes.animalsTheme
+            return Theme(name: "Animals",
+                         color: .brown,
+                         emojis: Emojis.animals)
         }
     }
-    static let vehiclesTheme = Theme(name: "Vehicles",
-                                color: .red,
-                                emojis: ["🚀", "🚂", "✈️", "🚲", "🚗", "🚜", "🛸", "🚁", "🚠", "🛶", "⛵️", "🚢", "🛵", "🚓", "🚑", "🚌", "🚕", "🚤", "🚙", "🚛", "🚇"])
-
-    static let toolsTheme = Theme(name: "Tools",
-                             color: .blue,
-                             emojis: ["🔧", "🪜", "🧰", "🪛", "🔨", "⛏", "🪚", "🔩", "⚙️", "🪓", "🧱", "🔑", "🧹", "✂️", "📐", "📏", "📎", "✏️", "🖋", "🔓", "🖍"])
-
-    static let facesTheme = Theme(name: "Faces",
-                             color: .orange,
-                             emojis: ["😃", "😄", "😘", "😍", "😇", "😅", "🤣", "☺️", "🧐", "🤓", "😎", "😜", "😝", "😤", "😭", "😢", "😠", "😱", "🤔", "😉", "🥳", "😩", "🤫", "😏", "🥱", "😲", "😴", "😷"])
-
-    static let fruitsTheme = Theme(name: "Fruits",
-                              color: .green,
-                              emojis: ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍒", "🍑", "🥭", "🍍", "🥝", "🌶", "🥑"])
-    static let flagsTheme = Theme(name: "Flags",
-                                color: .gray,
-                                emojis: ["🇨🇦", "🇧🇷", "🇩🇪", "🇬🇷", "🇪🇺", "🇯🇵", "🇲🇽", "🇰🇷", "🇮🇹", "🇮🇪", "🇪🇸", "🇵🇹", "🇺🇸", "🇬🇧", "🇹🇷", "🇷🇺", "🇮🇳", "🇦🇺", "🇪🇨"])
-    static let animalsTheme = Theme(name: "Animals",
-                                    color: .brown,
-                                emojis: ["🐒", "🐥", "🦆", "🦅", "🦉", "🦇", "🐝", "🦋", "🐌", "🐞", "🪰", "🐢", "🐍", "🦐", "🦀", "🐡", "🐬", "🐋", "🦈", "🐊", "🐅", "🦓", "🦍", "🦧", "🐘", "🦏", "🐫", "🦒", "🦘", "🐃", "🦬", "🐄", "🐖", "🐏", "🦙", "🐐", "🦌", "🐕", "🐈", "🦜", "🐇"])
 }
 
 struct Theme {
     let name: String
     let color: Color
     let emojis: [String]
+}
+
+struct Emojis {
+    static let vehicles = ["🚀", "🚂", "✈️", "🚲", "🚗", "🚜", "🛸", "🚁", "🚠", "🛶", "⛵️", "🚢", "🛵", "🚓", "🚑", "🚌", "🚕", "🚤", "🚙", "🚛", "🚇"]
+    static let tools = ["🔧", "🪜", "🧰", "🪛", "🔨", "⛏", "🪚", "🔩", "⚙️", "🪓", "🧱", "🔑", "🧹", "✂️", "📐", "📏", "📎", "✏️", "🖋", "🔓", "🖍"]
+    static let faces = ["😃", "😄", "😘", "😍", "😇", "😅", "🤣", "☺️", "🧐", "🤓", "😎", "😜", "😝", "😤", "😭", "😢", "😠", "😱", "🤔", "😉", "🥳", "😩", "🤫", "😏", "🥱", "😲", "😴", "😷"]
+    static let fruits = ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍒", "🍑", "🥭", "🍍", "🥝", "🌶", "🥑"]
+    static let flags = ["🇨🇦", "🇧🇷", "🇩🇪", "🇬🇷", "🇪🇺", "🇯🇵", "🇲🇽", "🇰🇷", "🇮🇹", "🇮🇪", "🇪🇸", "🇵🇹", "🇺🇸", "🇬🇧", "🇹🇷", "🇷🇺", "🇮🇳", "🇦🇺", "🇪🇨"]
+    static let animals = ["🐒", "🐥", "🦆", "🦅", "🦉", "🦇", "🐝", "🦋", "🐌", "🐞", "🪰", "🐢", "🐍", "🦐", "🦀", "🐡", "🐬", "🐋", "🦈", "🐊", "🐅", "🦓", "🦍", "🦧", "🐘", "🦏", "🐫", "🦒", "🦘", "🐃", "🦬", "🐄", "🐖", "🐏", "🦙", "🐐", "🦌", "🐕", "🐈", "🦜", "🐇"]
+
 }
