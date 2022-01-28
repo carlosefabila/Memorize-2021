@@ -17,32 +17,38 @@ enum Themes: CaseIterable {
     case flags
     case animals
 
-    static func getRandom() -> Theme {
+    static func getRandom(withNumberOfEmojisEqualTo numberOfEmojis: Int = 20) -> Theme {
         switch Themes.allCases.randomElement()! {
         case .vehicles:
-            return Theme(name: "Vehicles",
-                         color: .red,
-                         emojis: Emojis.vehicles)
+            return Theme(named: "Vehicles",
+                         colored: .red,
+                         randomlySelect: numberOfEmojis,
+                         fromEmojis: Emojis.vehicles)
         case .tools:
-            return Theme(name: "Tools",
-                         color: .blue,
-                         emojis: Emojis.tools)
+            return Theme(named: "Tools",
+                         colored: .blue,
+                         randomlySelect: numberOfEmojis,
+                         fromEmojis: Emojis.tools)
         case .faces:
-            return Theme(name: "Faces",
-                         color: .orange,
-                         emojis: Emojis.faces)
+            return Theme(named: "Faces",
+                         colored: .orange,
+                         randomlySelect: numberOfEmojis,
+                         fromEmojis: Emojis.faces)
         case .fruits:
-            return Theme(name: "Fruits",
-                         color: .green,
-                         emojis: Emojis.fruits)
+            return Theme(named: "Fruits",
+                         colored: .green,
+                         randomlySelect: numberOfEmojis,
+                         fromEmojis: Emojis.fruits)
         case .flags:
-            return Theme(name: "Flags",
-                         color: .gray,
-                         emojis: Emojis.flags)
+            return Theme(named: "Flags",
+                         colored: .gray,
+                         randomlySelect: numberOfEmojis,
+                         fromEmojis: Emojis.flags)
         case .animals:
-            return Theme(name: "Animals",
-                         color: .brown,
-                         emojis: Emojis.animals)
+            return Theme(named: "Animals",
+                         colored: .brown,
+                         randomlySelect: numberOfEmojis,
+                         fromEmojis: Emojis.animals)
         }
     }
 }
@@ -51,6 +57,19 @@ struct Theme {
     let name: String
     let color: Color
     let emojis: [String]
+    var emojisCount: Int { emojis.count }
+
+    init(named chosenName: String, colored chosenColor: Color, randomlySelect numberOfEmojis: Int, fromEmojis emojisList: [String]){
+        self.name = chosenName
+        self.color = chosenColor
+        let shuffledEmojisList = emojisList.shuffled()
+        if numberOfEmojis <= shuffledEmojisList.count {
+            let emojisSelection = shuffledEmojisList[0..<numberOfEmojis]
+            self.emojis = Array(emojisSelection)
+        } else {
+            self.emojis = shuffledEmojisList
+        }
+    }
 }
 
 struct Emojis {
